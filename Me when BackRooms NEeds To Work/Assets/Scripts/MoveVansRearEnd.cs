@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MoveVansRearEnd : MonoBehaviour
 {
-float VerticleSpeed;
+float VerticleInput;
+float HorizontalInput;
+float Speed;
+float RotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,11 @@ float VerticleSpeed;
     // Update is called once per frame
     void Update()
     {
-        VerticleSpeed = Input.GetAxis("Vertical")
-       TransForm.translate(Vector3.forward * Time.deltaTime * VerticleSpeed); 
+        VerticleInput = Input.GetAxis("Vertical");
+       Transform.translate(Vector3.forward * VerticleInput * Speed);
+
+       HorizontalInput=Input.GetAxis("Horizontal");
+       Transform.rotate(Vector3.right * RotationSpeed * HorizontalInput);
+
     }
 }
